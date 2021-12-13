@@ -1,0 +1,1122 @@
+body {
+  font-size: 16px;
+  background-image: linear-gradient(#ffeab0, #a97d67, #674f44);
+  background-color: #674f44;
+  font-family: "Century Gothic";
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/** HEADER **/
+#header-nav {
+  margin: 10px 0 10px 0;
+  background-color: #c2a00a;
+  border-radius: 0;
+  border: 0;
+}
+.navbar-nav li, .navbar-nav li a, .container-fluid li {
+  line-height: 0.9999;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.navbar-brand h1 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  line-height: 0.75;
+}
+
+.navbar-brand a:hover,
+.navbar-brand a:focus {
+  text-decoration: none;
+}
+
+.navbar-brand,
+#MVS,
+#userr {
+  color: #5a6268 !important;
+  opacity: 0.7;
+  
+}
+
+.navbar-brand p {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  margin-top: 15px;
+}
+
+#nav-list a {
+  color: #951c49;
+  text-align: center;
+  padding-right: 10px;
+}
+
+#collapsable-nav {
+  text-align: right;
+}
+
+.nav-item a {
+  color: #951c49;
+  text-align: center;
+  padding-top: 0px;
+}
+
+#nav-list a:hover {
+  background: #e7e7e7;
+
+}
+
+.navbar-toggler {
+  align-content: center;
+}
+
+.btn btn-primary {
+  background: #e7e7e7;
+}
+
+.input-panel {
+  margin: 25px;
+}
+
+.progress-bar-wrapper {
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.table td {
+  word-wrap: break-word;
+}
+
+.table td.text {
+  max-width: 200px !important;
+  vertical-align: middle;
+  align-content: center;
+}
+
+.table td.text span {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.datepicker-container {
+  z-index: 1600 !important; /* has to be larger than 1050 */
+}
+
+.table > tbody > tr.active > td {
+  background: #7abaff;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  width: 25px; /*Desired width*/
+  height: 25px; /*Desired height*/
+}
+
+/* IOANNA */
+
+.container-fluid {
+  line-height: 50px !important;
+  margin-left: 40px !important;
+  letter-spacing: 1.5px !important;
+  color: white !important;
+  background-color: #ffffff !important;
+  font-family: "Century Gothic";
+  line-height: 0.99;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background-color: #ffffff !important;
+  color: #5a6268 !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
+
+.container-fluid a:hover {
+  transition: border-top 0.2s !important;
+  border-top: 5px solid #efb03d !important;
+  color: #5a6268 !important;
+  background-color: transparent !important;
+  font-weight: 700;
+  opacity: 1 !important;
+  line-height: 0.85;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: transparent !important;
+  color: #5a6268 !important;
+ 
+}
+
+.logoo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline;
+  margin-left: -6px;
+  margin-top: -8px;
+}
+
+.navbar-inverse {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  text-transform: uppercase;
+}
+
+.panel-heading {
+  color: #555555;
+  margin-left: -19px;
+  background-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+.panel-title {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: "Century Gothic";
+  text-align: left;
+  margin-left: 105px;
+  font-size: 30px;
+  color: #686868;
+}
+
+.loginlogo {
+  width: 250px;
+  position: relative;
+  overflow: hidden;
+  display: inline;
+  margin-top: 80px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 7em;
+}
+
+.Elandlogin {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: "Century Gothic";
+  text-align: center;
+  font-size: 50px;
+  color: #f4d9a4;
+  text-shadow: 2px 2px 8px #547876;
+  position: absolute;
+  margin-left: 3em;
+}
+
+.panel {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: 5px 5px 19px #f4d9a4;
+}
+
+.requiredField {
+  color: #555555;
+  font-weight: 650;
+  letter-spacing: 1px;
+  font-family: "Century Gothic";
+  opacity: 0.8;
+}
+
+.tabb {
+  color: #cbb588;
+  font-weight: 700;
+}
+
+.tabb:hover {
+  color: #323232;
+  font-weight: 700;
+}
+
+#id_password,
+#id_email,
+#id_first_name,
+#id_last_name,
+#id_username {
+  background-color: #fffffd;
+  opacity: 0.9;
+  box-shadow: #f4d9a4;
+}
+
+#id_password1:focus,
+#id_password2:focus,
+#id_username:focus,
+#id_email:focus,
+#id_first_name:focus,
+#id_last_name:focus {
+  border-color: #f4d9a4;
+}
+
+.questionn {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-family: "Century Gothic";
+  opacity: 0.6;
+  text-align: center;
+}
+
+#loginbutton,
+#submitbutton {
+  background-color: #f4d9a4;
+  border-color: #f4d9a4;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 100%;
+  box-shadow: 1px 1px 3px #888888;
+}
+
+label[for="id_last_name"],
+label[for="id_first_name"],
+label[for="id_email"] {
+  color: #555555;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: "Century Gothic";
+  opacity: 0.8;
+}
+
+#hint_id_username,
+#hint_id_password1,
+#hint_id_password2 {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-family: "Century Gothic";
+  opacity: 0.6;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: "Century Gothic";
+  color: #ffffff;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 1px 2px 2px #222;
+}
+
+.alert-danger {
+  background-color: transparent;
+  border-color: transparent;
+  width: 100%;
+  font-family: "Century Gothic";
+  font-size: 12px;
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.m-0 {
+  list-style-type: none;
+  text-align: center;
+  margin-left: -25%;
+  margin-top: -20%;
+}
+
+.container5,
+.container6 {
+  background-color: #f5f5f5;
+  border: 0px solid transparent;
+  border-radius: 3px;
+  box-shadow: 5px 5px 19px #686868;
+  position: relative;
+  opacity: 0.95;
+}
+
+.container5 {
+  z-index: 1 !important;
+}
+
+#list5,
+#list6 {
+  font-family: "Century Gothic";
+  font-size: 12px;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  z-index: 1 !important;
+}
+
+#list5 {
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+#list6 {
+  font-weight: 500;
+}
+
+#box2 {
+  border: 0px solid transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 1 !important;
+}
+
+#listtitle,
+#listtitle2 {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: "Century Gothic";
+  font-size: 33px !important;
+  color: #f4d9a4;
+  text-shadow: 1px 1px 1px #222;
+  position: relative;
+  z-index: 1 !important;
+}
+
+#listtitle2 {
+  text-align: left !important;
+}
+
+#listtitle {
+  text-align: center !important;
+}
+
+.mapp {
+  height: 90%;
+  width: 100%;
+  position: relative;
+  z-index: 1 !important;
+  object-fit: cover;
+  background-repeat: repeat-y;
+  filter: grayscale(35%);
+  opacity: 0.8;
+  border-right: 6px solid #967b65;
+}
+
+.mapback {
+  height: 50%;
+  width: 138%;
+  position: absolute;
+  z-index: 0 !important;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  filter: grayscale(40%);
+  left: -19%;
+  box-shadow: 3px 3px 10px #3e3f40;
+}
+
+#mapid {
+  height: 1100px !important;
+  width: 100%;
+  position: relative;
+  z-index: 1 !important;
+  object-fit: cover;
+  background-repeat: repeat-y;
+}
+
+#id_name,
+#id_description,
+#id_latitude,
+#id_longitude,
+#id_duration,
+#id_currency,
+#id_discount,
+#id_tax,
+#id_annuity_factor,
+#id_crf {
+  letter-spacing: 1.2px;
+  font-family: "Century Gothic";
+  font-size: 13px;
+}
+
+#id_country,
+#id_currency {
+  opacity: 0.6;
+}
+
+.custom-control-label {
+  font-family: "Century Gothic";
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.requiredField {
+  width: 100% !important;
+  font-size: 13px !important;
+}
+
+.textinput a:hover {
+  border-top: 3px solid #f4d9a4 !important;
+}
+
+.form-control {
+  border-radius: 2px !important;
+}
+
+.tab {
+  overflow: hidden;
+  background-color: #f4d9a4;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-family: "Century Gothic";
+  font-size: 16px;
+  color: #171a1d;
+  font-weight: 600;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  transition: border-top 0.2s !important;
+  border-top: 5px solid #ffffff !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  background-color: #ffffff;
+}
+
+#scen,
+#comms {
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+#titlecoms,
+#titleproj,
+.panel-heading,
+.panel-title,
+.modal-title {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: "Century Gothic";
+  font-size: 33px !important;
+  color: #f4d9a4;
+  text-shadow: 1px 1px 1px #222 !important;
+  position: relative;
+  z-index: 1 !important;
+  text-align: center;
+}
+
+#titlecoms,
+#titleproj {
+  margin-left: 0px !important;
+}
+
+.panel-heading,
+.panel-title,
+.modal-title {
+  color: #1c1c1c !important;
+  font-weight: 800;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n + 1) {
+  background-color: #f9ebd4 !important;
+}
+
+.submit-btn.btn.btn-primary,
+.btn.btn-primary.btn-lg,
+#createnewscen,
+#uploadscen,
+#addcom,
+#backbutton,
+#backbutton2 {
+  background-color: #171a1d !important;
+  float: left;
+  border: none !important;
+  outline: none;
+  cursor: pointer;
+  padding: 16px 30px;
+  transition: 0.3s;
+  font-family: "Century Gothic";
+  font-size: 16px;
+  color: #f4d9a4 !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.submit-btn.btn.btn-primary:after,
+.btn.btn-primary.btn-lg:after,
+#createnewscen:after,
+#uploadscen:after,
+#addcom:after,
+#backbutton:after,
+#backbutton2:after {
+  content: "»";
+  color: #f4d9a4;
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+  text-decoration: none !important;
+}
+
+.submit-btn.btn.btn-primary:hover,
+.btn.btn-primary.btn-lg:hover,
+#createnewscen:hover,
+#uploadscen:hover,
+#addcom:hover,
+#backbutton:hover,
+#backbutton2:hover {
+  padding-right: 24px;
+  padding-left: 18px;
+  box-shadow: 5px 5px 5px #171a1d !important;
+  text-decoration: none !important;
+}
+
+.modal-dialog {
+  border-radius: 0px;
+  width: 50%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0 !important;
+  width: 100%;
+  height: 100%; /* or maybe 3rem or 7vh - Footer height */
+  z-index: 1;
+  background-color: #1b1e21;
+  color: #f4d9a4;
+}
+
+.footer-copyright {
+  background-color: #1b1e21;
+  color: #f4d9a4;
+  text-align: center;
+  opacity: 0.7;
+  padding-bottom: 0vh;
+  bottom: 0vh !important;
+  margin-bottom: 0em;
+  overflow: hidden;
+}
+
+#signupimg {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.parag01,
+.parag02,
+.parag03 {
+  height: auto !important;
+  width: 100%;
+  position: inherit;
+  left: 0;
+  right: 0;
+}
+
+.parag01 {
+  background-image: url("/static/images/ELA2.jpg");
+}
+
+.parag02 {
+  background-image: url("/static/images/ELA1.jpg");
+}
+
+.parag03 {
+  background-image: url("/static/images/ELA12.jpg");
+}
+
+.wraptextt1,
+.wraptextt2 {
+  letter-spacing: 1.5px;
+  margin-left: 5rem;
+  position: relative;
+  text-shadow: 2px 2px 8px #547876;
+  text-align: center;
+  font-family: "Century Gothic";
+}
+
+.wraptextt1 {
+  font-size: 50px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.wraptextt2 {
+  font-size: 40px;
+  color: #f4d9a4;
+  font-weight: 700;
+}
+
+.wraptextt {
+  letter-spacing: 1.5px;
+  font-family: "Century Gothic";
+  margin-left: 5rem;
+  font-size: 20px;
+  color: #1b1e21;
+  position: relative;
+  text-align: justify;
+  text-shadow: 1px 1px 2px #547876;
+  font-weight: 600;
+}
+
+.moving-mouse-holder {
+  margin: auto;
+  width: 170px;
+}
+
+.moving-mouse-holder .mouse {
+  width: 26px;
+  height: 40px;
+  position: relative;
+  right: 0;
+  border-radius: 18px;
+  border: 2px solid #fff3cd;
+}
+
+.moving-mouse-holder .mouse-button {
+  background-color: #fff3cd;
+  width: 4px;
+  height: 7px;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin: 0 0 0 -2px;
+  animation: mouse-scroll 1s infinite alternate;
+}
+
+.moving-mouse-holder .text {
+  margin-top: -30px;
+  margin-left: 40px;
+  color: #fff3cd;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+@keyframes mouse-scroll {
+  to {
+    transform: translate(0, 6px) scale(1, 0.8);
+  }
+}
+
+.accordtitle {
+  letter-spacing: 1.2px;
+  font-family: "Century Gothic";
+  font-size: 20px;
+  color: #e5b142;
+  position: relative;
+  margin-left: 20px;
+  cursor: pointer;
+  font-weight: 700;
+  text-shadow: 1px 1px 0px #65c8c9;
+}
+
+.accordsubtitle {
+  letter-spacing: 1.1px;
+  font-family: "Century Gothic";
+  font-size: 15px;
+  color: #494f54;
+  font-weight: 700;
+}
+
+.drawflow .connection .main-path {
+  stroke: #a9d9fe !important;
+}
+
+.drawflow .connection .main-path:hover {
+  stroke: #557ca1 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*kitrino back*/
+.wraptextt {
+  width: 90% !important;
+  margin: 0 auto !important;
+}
+
+#backbutton,
+#backbutton2 {
+  padding: 6px 10px !important;
+  border-radius: 50px;
+}
+
+#backbutton2 {
+  margin-top: -1em;
+}
+
+.wrapper-hero {
+  background-color: #ffffff;
+}
+
+.wrapper-hero,
+.wrapper-hero8 {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  z-index: 3;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}
+
+.wrapper-hero8 {
+  background-image: linear-gradient(to bottom, #ffff 50%, #151616 50%);
+}
+
+.wrapper-hero p,
+.wrapper-hero3 p,
+.wrapper-hero4 p {
+  color: #010707;
+  font-family: "Century Gothic" !important;
+  line-height: 1.1;
+  font-size: 15px;
+  text-align: justify;
+  font-weight: 200;
+  letter-spacing: normal;
+  opacity: 0.5;
+}
+
+.wrapper-hero3 p,
+.wrapper-hero4 p {
+  opacity: 0.9 !important;
+}
+
+.wrapper-hero h1,
+.wrapper-hero h3 {
+  color: black;
+  font-family: Bebas Neue, sans-serif;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: -0.045em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+}
+
+.wrapper-hero h1 {
+  letter-spacing: 0.025em !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.wrapper-hero .lexio-title {
+  font-family: BebasNeue, sans-serif;
+  font-size: 80px !important;
+  letter-spacing: -0.025em;
+  color: #010c0c !important;
+  text-align: center;
+  position: relative;
+  margin-top: 0;
+  line-height: 0.5;
+}
+
+.container1 {
+  width: 100%;
+}
+
+@media screen and (max-width: 864px) {
+  .wrapper-hero p,
+  .wrapper-hero4 p,
+  .wrapper-hero8 p,
+  .wrapper-hero3 p,
+  #wrap1 {
+    padding: 0em !important;
+    font-size: 12px !important;
+    margin: 2em !important;
+  }
+
+  .myimg1,
+  .myimg10,
+  .myimg15 {
+    width: 200px !important;
+  }
+}
+
+@media (max-width: 55rem) {
+  .panel-default {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container6 {
+    width: 90%;
+    margin: 5% auto;
+  }
+
+  .footer-copyright {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container5 {
+    width: 100%;
+    margin: 5% auto;
+  }
+}
+
+@media (max-width: 50rem) {
+  .centered {
+    max-width: 100%;
+    text-align: center;
+    font-size: 17px;
+  }
+}
+
+text.gtitle.allowEvents {
+  font-family: "Century Gothic" !important;
+  font-weight: 600 !important;
+  color: #1c1c1c !important;
+  opacity: 0.5 !important;
+}
+
+path.surface {
+  /* filter: hue-rotate(-0.35turn) brightness(130%) drop-shadow(5px 5px 10px gray);*/
+  filter: drop-shadow(1px 1px 2px gray);
+  margin: 3rem;
+}
+
+.slicetext {
+  font-family: "Century Gothic" !important;
+  font-size: 85% !important;
+  stroke: #1c1c1c !important;
+  opacity: 0.8;
+}
+
+.container1{
+  padding:5rem;
+  background: #ffffff;
+  background-image: linear-gradient(173deg, #e6ccb228 25%, rgba(0,0,0,0) 1%);
+  border-radius: 5px;
+}
+
+.feedbackimg{
+  width:110px;
+  height: auto;
+  object-fit: cover;
+ margin-left:-5%;
+ filter: grayscale(10%);
+}
+
+.textt{
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+
+.box1{
+  background-color: #1c1c1c;
+  width: 100%;
+  padding:1.5rem;
+  box-shadow: 3px 3px 8px #212e41;
+}
+
+.errorheading{
+  text-align: center;
+  font-weight: 800;
+  font-size:150px;
+  color:#15a4fa;
+
+}
+
+.errorparag{
+  font-size: 20px;
+  text-align: center;
+  color:rgb(184, 184, 184);
+  margin-top:-27%;
+}
+
+.errorredirect{
+  padding: 1rem;
+  background-color: #15a4fa;
+  color:#1c1c1c;
+  font-size:13px;
+  box-shadow: 1px 1px 3px #212e41;
+  margin-left:38%;
+}
+
+.errorredirect:hover{
+  padding: 1.1rem;
+  background-color: #15a4fa;
+  color:#1c1c1c;
+  box-shadow: 3px 3px 8px #15a2fabb;
+ 
+}
+.anim500{
+  
+  width: 220px;
+  height: 220px;
+  top:-200px;
+}
+@media (max-width: 1200px) {
+  .anim500{
+     left:-3% !important;
+     width: 180px;
+     height: 180px;
+     top:-210px;
+  }
+  .errorparag{
+      margin-top:-40%!important;
+  }
+  .errorredirect{
+      margin-left:33%;
+  }
+}
+
+@media (max-width: 992px) {
+  
+  .errorheading{
+      text-align: center;
+      font-weight: 800;
+      font-size:150px;
+      color:#15a4fa;
+  }
+  
+  .anim{
+      top: -130px !important;
+  }
+  .anim500{
+      left:-3% !important;
+      width: 100px;
+      height: 100px;
+      top: -150px;
+   }
+
+  .errorparag{
+      font-size: 18px;
+      margin-top:-45%;
+  }
+  
+  .errorredirect{
+      margin-left:30%;
+  }
+  
+  .errorredirect:hover{
+      padding: 1.1rem;
+      background-color: #15a4fa;
+      color:#1c1c1c;
+      box-shadow: 3px 3px 8px #15a2fabb;
+     
+  }
+}
+@media (max-width: 768px) {
+  .anim {
+      top: -130px !important;
+  }
+  .anim500{
+      top: -150px;
+  }
+  .errorparag{
+      margin-top:-35%!important;
+  }
+  .errorredirect{
+      margin-left:33%;
+  }
+}
+@media (max-width: 576px) {
+  .errorparag{
+      margin-top:-35%!important;
+  }
+  .errorredirect{
+      margin-left:33%;
+  }
+  .anim500{
+      top: -280px;
+      left: 40% !important;
+  }
+}
+@media (max-width: 410px) {
+  .errorparag{
+      margin-top:-35%!important;
+  }
+  .errorredirect{
+      margin-left:27%;
+  }
+  
+}
+
+@media (max-width: 350px) {
+  .errorredirect{
+      margin-left:20%;
+  }
+  .anim500{
+      top: -280px;
+      width: 100px;
+      height: 100px;
+      left: 30% !important;
+  }
+}
+
+@media (max-width: 315px) {
+  .errorheading{
+      font-size:100px;
+  }
+  .anim{
+      top: -100px !important;
+  }
+  .anim500{
+      top: -220px;
+      
+  }
+}
+
+a.terms{
+  color:white;
+  cursor: pointer;
+  font-size: 11px;
+ }
+ .dropdown-menu > .active > a{
+  background-color: transparent;
+  color:#333;
+  font-weight: 600;
+  border-top: 5px solid #efb03d !important;
+ }

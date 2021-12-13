@@ -1,0 +1,58 @@
+.allowEvents {
+    pointer-events: all !important;
+}
+@media screen and (max-width: 991px) {
+#economicDataDiv{
+    position: relative;
+    right:-20%!important;
+}
+}
+@media screen and (max-width: 767px) {
+#economicDataDiv{
+    position: relative;
+    right:-15%!important;
+}
+}
+@media screen and (max-width: 578px) {
+#economicDataDiv{
+    position: relative;
+    right:10%!important;
+}
+}
+.hovertext text{
+    font-family: 'Century Gothic' !important;
+    font-size:70% !important;
+    opacity: 0.8;
+}
+.hovertext{
+    filter: drop-shadow(1px 1px 4px #1c1c1c);
+}
+.panel{
+    border:2px solid #eee;
+    padding: 4rem;
+    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.295));
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > 
+.active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{
+    background-color: burlywood;
+    border-color: burlywood;
+}
+.pagination > li > a, .pagination > li > span{
+    color:burlywood;
+}
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover{
+    color:rgb(199, 165, 121);
+    font-weight: 600;
+}
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+    border-top:none;
+}
+.selectize-control.multi .selectize-input > div{
+    background: burlywood!important;
+    border:rgb(180, 149, 109)!important;
+    font-weight: 600;
+}
+#ElectricityGraphDiv{
+    font-size:80%;
+    font-family: 'Century Gothic'!important;
+}

@@ -1,0 +1,741 @@
+:root {
+    --border-color: #f4d9a4;
+    --background-color: #ffffff;
+    --background-box-title: #f7f7f7;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    height: 66px;
+    border-bottom: 1px solid var(--border-color);
+    padding-left: 20px;
+}
+
+header h2 {
+    margin: 0px;
+    line-height: 66px;
+}
+
+header a {
+    color: black;
+}
+
+.wrapper {
+    width: 100%;
+    height: calc(100vh - 67px);
+    display: flex;
+}
+
+.modalbutton{
+    background-color: #171a1d !important;
+    border: none !important;
+    outline: none;
+    cursor: pointer;
+    padding: 16px 30px;
+    transition: 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    color: #F4D9A4 !important;
+    font-weight: 600;
+    text-align: center;
+}
+
+.modalbutton:hover{
+    padding-right: 24px;
+    padding-left: 18px;
+    box-shadow: 5px 5px 5px #171a1d !important;
+    text-decoration: none !important;
+}
+
+.col {
+    overflow: auto;
+    width: 300px;
+    height: 100%;
+    border-right: 1px solid var(--border-color);
+    background-color: #fffffd;
+
+}
+
+.drag-drawflow {
+    line-height: 30px;
+    /*border-bottom: 1px solid var(--border-color);*/
+    border-left:1px solid #97989b;
+    padding-left: 20px;
+    cursor: move;
+    user-select: none;
+    border-radius: 0px 0px 15px 0px;
+    font-size:13px!important;
+   margin-left:10%;
+   color:#1c1c1cb7;
+   padding-top:1rem;
+   padding-bottom:1rem;
+   border-bottom:1px solid #97989b1c;
+}
+
+span.accordsubtitle{
+    color:#1c1c1cb7;
+}
+
+.drag-drawflow:hover {
+    background-color: #fff3cd;
+}
+
+.menu {
+    position: absolute;
+    height: 40px;
+    display: block;
+    background: white;
+    width: 100%;
+}
+
+.menu ul {
+    padding: 0px;
+    margin: 0px;
+    line-height: 40px;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-left: 10px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    padding-right: 10px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.menu ul li.selected {
+    font-weight: bold;
+}
+
+.btn-export, .btn-clear {
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #0e5ba3;
+    background: #65C8C9;
+    padding: 5px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.3s;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px #222;
+}
+
+.btn-clear {
+    right: 85px !important;
+    border: 1px solid #856404 !important;
+    background: #e9c579 !important;
+}
+
+
+.btn-clear:after, .btn-export:after {
+    content: '»';
+    color: #F4D9A4;
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+    text-decoration: none !important;
+
+}
+
+.btn-clear:hover, .btn-export:hover {
+    padding-right: 15px;
+    padding-left: 18px;
+    box-shadow: 5px 5px 5px #171a1d;
+    text-decoration: none !important;
+}
+
+#drawflow {
+    position: relative;
+    width: calc(100vw - 301px);
+    height: calc(100% - 50px);
+    top: 40px;
+    background: var(--background-color);
+    background-size: 25px 25px;
+}
+
+.drawflow .drawflow-node {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 0px;
+    width: 200px;
+}
+
+
+.drawflow .drawflow-node.selected {
+    background: white;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 20px 2px transparent;
+    box-shadow: 0 2px 20px 2px transparent;
+}
+
+.drawflow .connection .main-path {
+    stroke: #4ea9ff;
+    stroke-width: 3px;
+}
+
+.drawflow .drawflow-node .input, .drawflow .drawflow-node .output {
+    height: 15px;
+    width: 15px;
+    border: 2px solid var(--border-color);
+}
+
+
+.drawflow .drawflow-node .input:hover, .drawflow .drawflow-node .output:hover {
+    background: #a9d9fe;
+}
+
+.drawflow .drawflow-node .output {
+    right: 10px;
+}
+
+.drawflow .drawflow-node .input {
+    left: -10px;
+    background: white;
+}
+
+.drawflow > .drawflow-delete {
+    border: 2px solid #43b993;
+    background: white;
+    color: #43b993;
+    -webkit-box-shadow: 0 2px 20px 2px #43b993;
+    box-shadow: 0 2px 20px 2px #43b993;
+}
+
+.drawflow-delete {
+    border: 2px solid #e63946;
+    background: #fcd5ce;
+    color: #e63946;
+    -webkit-box-shadow: 0 2px 20px 2px #e63946;
+    box-shadow: 0 1px 10px 1px #e63946;
+}
+
+.drawflow-node .drawflow_content_node {
+    height: 100%;
+    width: 100% !important;
+    place-content: center;
+}
+
+.drawflow-node .box {
+    position: relative;
+    height: 200% !important;
+    width: 120% !important;
+    text-align: center;
+    max-width: 120%;
+    margin-left: -1em;
+    margin-top: -3vh;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    color: #494f54;
+    font-weight: 700;
+}
+
+.requiredField {
+    text-align: center !important;
+    text-transform: uppercase !important;
+    color: #1c1c1c;
+    opacity: 0.9;
+    font-weight: 550;
+}
+
+.panel-heading {
+    font-size: 25px !important;
+}
+
+.swal2-confirm {
+    background-color: #E5B142 !important;
+}
+
+.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
+    background-color: #E5B142 !important;
+}
+
+.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
+    background-color: #F4D9A4 !important;
+}
+
+.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
+    background-color: #F4D9A4 !important;
+}
+
+.swal2-progress-steps .swal2-progress-step {
+    background-color: #E5B142 !important;
+}
+
+.swal2-progress-steps .swal2-progress-step-line {
+    background-color: #E5B142 !important;
+}
+
+.drawflow-node input, .drawflow-node select, .drawflow-node textarea {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    width: 100%;
+    color: #8d8d8d;
+}
+
+.drawflow-node textarea {
+    height: 100px;
+}
+
+.drawflow-node.bus, .drawflow-node.demand, .drawflow-node.electricity_excess, .drawflow-node.dso_feedin,
+.drawflow-node.dso, .drawflow-node.dso_consumption, .drawflow-node.pv_plant, .drawflow-node.wind_plant,
+.drawflow-node.gas_dso , .drawflow-node.h2_dso, .drawflow-node.heat_dso,
+.drawflow-node.biogas_plant, .drawflow-node.geothermal_conversion, .drawflow-node.solar_thermal_plant,
+.drawflow-node.diesel_generator, .drawflow-node.fuel_cell, .drawflow-node.gas_boiler,
+.drawflow-node.electrolyzer, .drawflow-node.heat_pump, .drawflow-node.gas_demand,
+.drawflow-node.h2_demand, .drawflow-node.heat_demand,
+.drawflow-node.bess, .drawflow-node.gess, .drawflow-node.h2ess, .drawflow-node.hess, .drawflow-node.transformer_station_in, 
+.drawflow-node.transformer_station_out, .drawflow-node.storage_charge_controller_in, .drawflow-node.storage_charge_controller_out,
+.drawflow-node.solar_inverter, .drawflow-node.charging_power, .drawflow-node.discharging_power, .drawflow-node.capacity
+{   
+    border-bottom: 50px solid transparent;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border: transparent;
+    height: 0;
+    width: 125px;
+    background: transparent;
+    text-align: left;
+}
+
+.bus:before {
+     background: url("/static/images/buus1.png") no-repeat
+ }
+.demand:before {
+    background: url("/static/images/plug1.png") no-repeat;
+}
+.dso_consumption:before {
+    background: url("/static/images/dso11.png") no-repeat;
+}
+
+.dso:before {
+    background: url("/static/images/dso11.png") no-repeat;
+}
+
+.gas_dso:before {
+    background: url("/static/images/gasprovv1.png") no-repeat;
+} 
+.h2_dso:before{
+    background: url("/static/images/h2dso1.png") no-repeat;
+} 
+.heat_dso:before  {
+    background: url("/static/images/heatprovvv1.png") no-repeat;
+}
+
+.bess:before  {
+    background: url("/static/images/bess1.png") no-repeat;
+}
+.gess:before  {
+    background: url("/static/images/gess1.png") no-repeat;
+}
+.hess:before  {
+    background: url("/static/images/hesss1.png") no-repeat;
+}
+.h2ess:before  {
+    background: url("/static/images/h2ess1.png") no-repeat;
+}
+.biogas_plant:before{
+    background: url("/static/images/biogasprod1.png") no-repeat;
+} 
+.geothermal_conversion:before{
+    background: url("/static/images/geothermalprodd1.png") no-repeat;
+} 
+.solar_thermal_plant:before{
+    background: url("/static/images/solarprodd1.png") no-repeat;
+}
+.diesel_generator:before{
+    background: url("/static/images/dieselconv1.png") no-repeat;
+} 
+.fuel_cell:before{
+    background: url("/static/images/fuelconv21.png") no-repeat;
+} 
+.gas_boiler:before{
+    background: url("/static/images/gasconvv1.png") no-repeat;
+}
+.electrolyzer:before{
+    background: url("/static/images/electrolyzerconv1.png") no-repeat;
+} 
+.heat_pump:before{
+    background: url("/static/images/heatconvv1.png") no-repeat;
+} 
+.gas_demand:before{
+    background: url("/static/images/gascons1.png") no-repeat;
+}
+.h2_demand:before{
+    background: url("/static/images/h2cons1.png") no-repeat;
+} 
+.heat_demand:before  {
+    background: url("/static/images/heatcons1.png") no-repeat;
+}
+.pv_plant:before {
+    background: url("/static/images/solar-energy1.png") no-repeat;
+}
+.wind_plant:before {
+    background: url("/static/images/weatherr1.png") no-repeat;
+}
+.transformer_station_in:before {
+    background: url("/static/images/transformer1.png") no-repeat;
+}
+
+.transformer_station_out:before {
+    background: url("/static/images/transformer1.png") no-repeat;
+}
+
+.storage_charge_controller_in:before {
+    background: url("/static/images/electric-station1.png") no-repeat;
+}
+
+.storage_charge_controller_out:before {
+    background: url("/static/images/electric-station1.png") no-repeat;
+}
+.solar_inverter:before {
+     background: url("/static/images/solar-panell1.png") no-repeat;
+}
+.charging_power:before {
+    background: url("/static/images/lighting1.png") no-repeat;
+}
+.discharging_power:before {
+    background: url("/static/images/low-battery-level1.png") no-repeat;
+}
+.drawflow-node.capacity:before {
+    background: url("/static/images/status1.png") no-repeat;
+}
+
+.drawflow-node.bus .input, .drawflow-node.demand .input, .drawflow-node.electricity_excess .input, .drawflow-node.dso_feedin .input,
+.drawflow-node.gas_demand .input,
+.drawflow-node.h2_demand .input, .drawflow-node.heat_demand .input,
+.drawflow-node.transformer_station_in .input, .drawflow-node.transformer_station_out .input, .drawflow-node.storage_charge_controller_in .input, .drawflow-node.storage_charge_controller_out .input, .drawflow-node.solar_inverter .input,
+.drawflow-node.diesel_generator .input, .drawflow-node.fuel_cell .input, .drawflow-node.gas_boiler .input,
+.drawflow-node.electrolyzer .input, .drawflow-node.heat_pump .input,
+.drawflow-node.gess .input, .drawflow-node.bess .input, .drawflow-node.hess .input, .drawflow-node.h2ess .input,
+.drawflow-node.charging_power .input, .drawflow-node.discharging_power .input, .drawflow-node.capacity .input 
+.drawflow-node.discharging_power .input, .drawflow-node.ess .input {
+    background: green;
+    position: absolute;
+    left: -10px;
+    top: -60px;
+   
+}
+.drawflow-node.gess .input, .drawflow-node.bess .input, .drawflow-node.hess .input, .drawflow-node.h2ess .input, .drawflow-node.transformer_station_out .input, .drawflow-node.storage_charge_controller_out .input{
+    left: 85px;
+}
+
+.drawflow-node.demand .output, .drawflow-node.electricity_excess .output, .drawflow-node.dso_feedin .output,
+.drawflow-node.gas_demand .output,
+.drawflow-node.h2_demand .output, .drawflow-node.heat_demand .output,.drawflow-node.discharging_power .output {
+    display: none;
+    background: #9e2a2b;
+}
+
+/*.drawflow-node.demand .box, .drawflow-node.ess .box, .drawflow-node.bus .box {
+    margin-top: -6vh !important;
+    margin-right: -10em;
+    width: 100% !important;
+}*/
+
+.drawflow-node.demand .box, .drawflow-node.ess .box, .drawflow-node.bus .box,
+.drawflow-node.dso .box, .drawflow-node.dso_consumption .box, .drawflow-node.pv_plant .box, .drawflow-node.wind_plant .box,
+.drawflow-node.gas_dso .box, .drawflow-node.h2_dso .box, .drawflow-node.heat_dso .box,
+.drawflow-node.biogas_plant .box, .drawflow-node.geothermal_conversion .box, .drawflow-node.solar_thermal_plant .box,
+.drawflow-node.diesel_generator .box, .drawflow-node.fuel_cell .box, .drawflow-node.gas_boiler .box,
+.drawflow-node.electrolyzer .box, .drawflow-node.heat_pump .box, .drawflow-node.gas_demand .box,
+.drawflow-node.h2_demand .box, .drawflow-node.heat_demand .box,
+.drawflow-node.bess .box, .drawflow-node.gess .box, .drawflow-node.h2ess .box, .drawflow-node.hess .box,
+.drawflow-node.transformer_station_in .box, .drawflow-node.transformer_station_out .box, .drawflow-node.storage_charge_controller_in .box, .drawflow-node.storage_charge_controller_out .box, .drawflow-node.solar_inverter .box,
+.drawflow-node.dso .box, .drawflow-node.dso_consumption .box, .drawflow-node.pv_plant .box, .drawflow-node.wind_plant .box,
+.drawflow-node.gas_dso .box, .drawflow-node.h2_dso .box, .drawflow-node.heat_dso .box,
+.drawflow-node.biogas_plant .box, .drawflow-node.geothermal_conversion .box, .drawflow-node.solar_thermal_plant .box,
+.drawflow-node.diesel_generator .box, .drawflow-node.fuel_cell .box, .drawflow-node.gas_boiler .box,
+.drawflow-node.electrolyzer .box, .drawflow-node.heat_pump .box, .drawflow-node.gas_demand .box,
+.drawflow-node.h2_demand .box, .drawflow-node.heat_demand .box,
+.drawflow-node.bess .box, .drawflow-node.gess .box, .drawflow-node.h2ess .box, .drawflow-node.hess .box,
+.drawflow-node.charging_power .box, .drawflow-node.capacity .box, .drawflow-node.discharging_power .box
+{
+    margin-top: -9vh !important;
+    right: -1em !important;
+    width: 100% !important;
+}
+
+.drawflow-node:before  {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top:-50px;
+    min-height: 100%;
+    margin-right: -90px;
+    margin-bottom: 0em;
+    content: "lala";
+    color: transparent;
+    background-size: 100%;
+}
+
+.nodeName {
+    position: relative;
+    font-family: "Century Gothic";
+    font-size: 13px;
+    color: black;
+    margin-top:-110%;
+    white-space: nowrap;
+    width:200px;
+    text-align: center;
+    left: -50px;
+    font-weight:700;
+    
+    word-break: break-all;
+    white-space:normal;
+    padding:0.5rem;
+    max-width:200px;
+}
+
+.drawflow-node.dso .input, .drawflow-node.dso_consumption .input, .drawflow-node.pv_plant .input, .drawflow-node.wind_plant .input,
+.drawflow-node.gas_dso .input, .drawflow-node.h2_dso .input, .drawflow-node.heat_dso .input,
+.drawflow-node.biogas_plant .input, .drawflow-node.geothermal_conversion .input, .drawflow-node.solar_thermal_plant .input,
+.drawflow-node.charging_power .input, .drawflow-node.capacity .input
+{
+    background: green;
+    display: none;
+}
+
+.drawflow-node.dso .output, .drawflow-node.dso_consumption .output, .drawflow-node.pv_plant .output, .drawflow-node.wind_plant .output, 
+.drawflow-node.gas_dso .output, .drawflow-node.h2_dso .output, .drawflow-node.heat_dso .output,
+.drawflow-node.biogas_plant .output, .drawflow-node.geothermal_conversion .output, .drawflow-node.solar_thermal_plant .output,
+.drawflow-node.diesel_generator .output, .drawflow-node.fuel_cell .output, .drawflow-node.gas_boiler .output,
+.drawflow-node.electrolyzer .output, .drawflow-node.heat_pump .output,
+.drawflow-node.gess .output, .drawflow-node.bess .output, .drawflow-node.hess .output, .drawflow-node.h2ess .output,
+.drawflow-node.pv_plant .output, .drawflow-node.wind_plant .output, .drawflow-node.bus .output, .drawflow-node.transformer_station_in .output, .drawflow-node.transformer_station_out .output, .drawflow-node.storage_charge_controller_in .output, .drawflow-node.storage_charge_controller_out .output, .drawflow-node.solar_inverter .output,
+.drawflow-node.charging_power .output, .drawflow-node.discharging_power .output, .drawflow-node.capacity .output, .drawflow-node.charging_power .output
+.drawflow-node.ess .output, .drawflow-node.bess .output {
+
+    background: #9e2a2b;
+    position: absolute;
+    top: -60px;
+    left: 85px;
+}
+.drawflow-node.gess .output, .drawflow-node.bess .output, .drawflow-node.hess .output, .drawflow-node.h2ess .output, .drawflow-node.transformer_station_out .output, .drawflow-node.storage_charge_controller_out .output{
+    left: -10px;
+}
+/*.drawflow-node.dso.selected, .drawflow-node.dso_consumption.selected, .drawflow-node.pv_plant.selected, .drawflow-node.wind_plant.selected
+.drawflow-node.gas_dso.selected, .drawflow-node.h2_dso.selected, .drawflow-node.heat_dso.selected,
+.drawflow-node.biogas_plant.selected, .drawflow-node.geothermal_conversion.selected, .drawflow-node.solar_thermal_plant.selected,
+.drawflow-node.diesel_generator.selected, .drawflow-node.fuel_cell.selected, .drawflow-node.gas_boiler.selected,
+.drawflow-node.electrolyzer.selected, .drawflow-node.heat_pump.selected, .drawflow-node.gas_demand.selected,
+.drawflow-node.h2_demand.selected, .drawflow-node.heat_demand.selected
+.drawflow-node.gess.selected, .drawflow-node.bess.selected, .drawflow-node.hess.selected, .drawflow-node.h2ess.selected,
+.drawflow-node.transformer_station_in.selected, .drawflow-node.transformer_station_out.selected, .drawflow-node.storage_charge_controller_in.selected, .drawflow-node.storage_charge_controller_out.selected, .drawflow-node.solar_inverter.selected,.drawflow-node.charging_power.selected, 
+.drawflow-node.discharging_power.selected, .drawflow-node.capacity.selected {
+    
+    border-top: 50px solid transparent;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 125px;
+    background: transparent;
+    text-align: left;
+}*/
+
+.drawflow .connection .point {
+    stroke: var(--border-color);
+    stroke-width: 2;
+    fill: white;
+    transform: translate(-9999px, -9999px);
+}
+
+.drawflow .connection .point.selected, .drawflow .connection .point:hover {
+    fill: #4ea9ff;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 7;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 5em;
+    border: 1px solid #888;
+    inline-size: border-box;
+    text-align: left;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+.modal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Make inputs to the top */
+.drawflow .parent-node .custom-node-1 .inputs {
+    position: absolute;
+    top: -10px;
+    padding-left: 50%;
+}
+
+/* Make outputs to the bottom */
+.drawflow .parent-node .custom-node-2 .outputs {
+    position: absolute;
+    bottom: -10px;
+    padding-left: 50%;
+}
+
+/* Make inputs to the right */
+.drawflow .parent-node .custom-node-3 .inputs {
+    position: absolute;
+    right: 0px;
+}
+
+/* Make outputs to the left */
+.drawflow .parent-node .custom-node-4 .outputs {
+    position: absolute;
+    left: 0px;
+}
+
+
+@media only screen and (max-width: 868px) {
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1364px) {
+    .modal-content {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .col {
+        width: 50px;
+    }
+
+    .col .drag-drawflow span {
+        display: none;
+    }
+
+    #drawflow {
+        width: calc(100vw - 51px);
+    }
+}
+
+.drawflow-node.bus {
+    background: transparent;
+    height: 0px;
+    width: 70px;
+    border: transparent;
+    text-align: left;
+    color: white;
+}
+.bus:before {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    min-height: 100%;
+    margin-right: -90px;
+    margin-bottom: 0em;
+    content: "lalala";
+    color: transparent;
+    background: url("/static/images/buus1.png") no-repeat;
+    background-size: 100%;
+   
+}
+
+.drawflow-node.bus .input,.drawflow-node.bus .output {
+    position:relative;
+}
+
+.drawflow-node.bus .output {
+    left:15px;
+}
+
+.drawflow .drawflow-node{
+    background: transparent!important;
+}
+
+.drawflow-node.bus .nodeName {
+top:-50px;
+}
+.parent-node .drawflow-delete {
+    right: 15px;
+    top: -35px;
+}
+
+.drawflow-node.bus .drawflow-delete {
+    right: -45px;
+    top: -35px;
+}
+
+div#accordion.col.ui-accordion.ui-widget.ui-helper-reset{
+    background:#f6f5f8;
+    border-right:none;
+    box-shadow: 10px 0 5px -2px #888;
+}
+
+
+.accordtitle{
+    letter-spacing: 1.2px;
+    font-family: "Century Gothic";
+    font-size: 17px;
+    color: #6a6c74;
+    position: relative;
+    margin-left: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    text-shadow: none;
+    padding:2rem;
+    width:90%;
+}
+
+.accordtitle:hover{
+    background: #E8E9EC;
+    border-radius:10%;
+}
+
+#backbutton2 {
+    margin-left: 2rem;
+}
+
+body{
+    background:#f5e9ca;
+}

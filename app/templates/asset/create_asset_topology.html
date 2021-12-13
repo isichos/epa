@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block start_body_scripts %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jerosoler/Drawflow@0.0.49/dist/drawflow.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/beautiful.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+{% endblock start_body_scripts %}
+
+{% block topology %}
+
+<button onclick="window.open(`{% url 'scenario_search' project_id %}`, `_self`)" id="backbutton2">
+    <span class="glyphicon glyphicon-chevron-left"></span> Back
+</button>
+
+<br>
+
+<div class="wrapper">
+
+    <div id="accordion" class="col">
+        <h3 class="accordtitle">Energy Providers&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="dso">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Electricity DSO </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="gas_dso">
+                <i class="fas fa-oil-can"></i><span class="accordsubtitle"> Gas DSO </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="h2_dso">
+                <i class="fas fa-heading"></i><span class="accordsubtitle"> H2 DSO </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="heat_dso">
+                <i class="fas fa-temperature-high"></i><span class="accordsubtitle"> Heat DSO </span>
+            </li>
+        </ul>
+        <h3 class="accordtitle">Energy Production&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="pv_plant">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> PV Plant </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="wind_plant">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Wind Plant </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="biogas_plant">
+                <i class="fas fa-oil-can"></i><span class="accordsubtitle"> Biogas Plant </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="geothermal_conversion">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Geothermal Conversion </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="solar_thermal_plant">
+                <i class="fas fa-temperature-high"></i><span class="accordsubtitle"> Solar Thermal Plant </span>
+            </li>
+        </ul>
+        <h3 class="accordtitle">Energy Conversion&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="transformer_station_in">
+                <i class="fas fa-arrow-left"></i><span class="accordsubtitle"> Transformer Station Import </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="transformer_station_out">
+                <i class="fas fa-arrow-right"></i><span class="accordsubtitle"> Transformer Station Export </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)"
+                data-node="storage_charge_controller_in">
+                <i class="fas fa-bolt"></i> <i class="fas fa-long-arrow-alt-left"></i><span class="accordsubtitle">
+                    Inverter </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)"
+                data-node="storage_charge_controller_out">
+                <i class="fas fa-bolt"></i> <i class="fas fa-long-arrow-alt-right"></i><span class="accordsubtitle">
+                    Rectifyer </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="diesel_generator">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Diesel
+                    Generator </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="fuel_cell">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Fuel Cell </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="gas_boiler">
+                <i class="fas fa-oil-can"></i><span class="accordsubtitle"> Gas Boiler </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="electrolyzer">
+                <i class="fas fa-heading"></i><span class="accordsubtitle"> Electrolyzer </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="heat_pump">
+                <i class="fas fa-temperature-high"></i><span class="accordsubtitle"> Heat Pump </span>
+            </li>
+            <br>
+        </ul>
+        <h3 class="accordtitle">Energy Storage&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="bess">
+                <i class="fas fa-bolt"></i><span class="accordsubtitle"> Electricity Storage </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="gess">
+                <i class="fas fa-oil-can"></i><span class="accordsubtitle"> Gas Storage </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="h2ess">
+                <i class="fas fa-heading"></i><span class="accordsubtitle"> H2 Storage </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="hess">
+                <i class="fas fa-temperature-high"></i><span class="accordsubtitle"> Heat Storage </span>
+            </li>
+        </ul>
+        <h3 class="accordtitle">Energy Consumption&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="demand">
+                <i class="fas fa-lightbulb"></i><span class="accordsubtitle"> Electricity Demand </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="gas_demand">
+                <i class="fas fa-lightbulb"></i><span class="accordsubtitle"> Gas Demand </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="h2_demand">
+                <i class="fas fa-heading"></i><span class="accordsubtitle"> H2 Demand </span>
+            </li>
+            <li class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="heat_demand">
+                <i class="fas fa-lightbulb"></i><span class="accordsubtitle"> Heat Demand </span>
+            </li>
+        </ul>
+        <h3 class="accordtitle">Energy Bus&nbsp;&nbsp;<i class="fas fa-caret-down"></i></h3>
+        <ul style="list-style-type: none; padding: 0; height: auto;">
+            <li>
+                <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="bus">
+                    <i class="fas fa-grip-lines"></i><span class="accordsubtitle"> Bus </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-center">
+        <div class="menu">
+            <ul>
+                <li onclick="editor.changeModule('Home'); changeModule(event);" class="selected">
+                    Topology
+                </li>
+            </ul>
+        </div>
+
+        <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="area-selection-div" hidden style="border: 1px dotted #000; position: absolute;"></div>
+            {% if scenario.project.user == request.user %}
+            <div class="btn-export">Save</div>
+            {% endif %}
+            <div class="btn-clear" onclick="clearGridModel()">Clear</div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock topology %}
+
+
+{% block end_body_scripts %}
+
+<script src="https://unpkg.com/drawflow@0.0.49/dist/drawflow.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.9/dist/sweetalert2.all.min.js" integrity="sha256-cVGORkY+uiunzv2eaw1GBLjgJurjERN5SGpRDE9veLM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.1.0/jquery.serializejson.min.js"
+    integrity="sha512-4y8bsEzrXJqRyl2dqjdKk/DetH59JcFTtYNMsy5DUpvVV8CXiSrQ1gSCL3+dFgj1Xco0ONPizsYd6wX2eAXL2g=="
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $("#accordion").accordion({ collapsible: true, heightStyle: "content" });
+</script>
+
+<script>
+    const csrfToken = '{{ csrf_token }}';
+    const formGetUrl = `{% url 'get_asset_create_form' %}`;
+    const formPostUrl = `{% url 'asset_create_or_update' scenario.id %}`;
+    const retrieveExisitngNodesUrl = `{% url 'new_assets_topology' scenario.id %}`;
+    const scenarioBelongsToUser = {% if scenario.project.user == request.user %}true{% else %} false{% endif %};
+    const newAssetsCommitTopologyUrl = "{% url 'new_assets_topology' scenario.id %}";
+    const scenarioSearchUrl = "{% url 'scenario_search' project_id %}";
+</script>
+<script src="{% static 'js/grid_model_topology.js' %}"></script>
+
+<script>
+    /* Script to retrieve nodes (assets and busses) and links data from the backend. */
+    const addBusses = async (data) =>
+        await Promise.all(data.map(async nodeData => {
+            const result = await createNodeObject(nodeData.name, nodeData.input_ports, nodeData.output_ports, nodeData.data, nodeData.pos_x, nodeData.pos_y);
+            nodesToDB.set(`node-${result.editorNodeId}`, { uid: nodeData.data.databaseId, assetTypeName: "bus" });
+        }));
+
+    const addAssets = async (data) =>
+        await Promise.all(data.map(async nodeData => {
+            const result = await createNodeObject(nodeData.name, 1, 1, nodeData.data, nodeData.pos_x, nodeData.pos_y);
+            nodesToDB.set(`node-${result.editorNodeId}`, { uid: nodeData.data.unique_id, assetTypeName: nodeData.name });
+        }));
+
+    const addLinks = async (data) => data.map(async linkData => {
+        const busNodeId = [...nodesToDB.entries()].filter(([key, val]) => val.uid === linkData.bus_id).map(([k, v]) => k)[0].split("-").pop();
+        const assetNodeId = [...nodesToDB.entries()].filter(([key, val]) => val.uid === linkData.asset_id).map(([k, v]) => k)[0].split("-").pop();
+        (linkData.flow_direction === "B2A") ?
+            editor.addConnection(busNodeId, assetNodeId, linkData.bus_connection_port, 'input_1')
+            : editor.addConnection(assetNodeId, busNodeId, 'output_1', linkData.bus_connection_port);
+    });
+
+    $(window).on('load', async function () {
+        const data = JSON.parse(`{{topology_data_list| escapejs }}`);
+        Promise.all([addBusses(data['busses']), addAssets(data['assets'])])
+            .then(async () => addLinks(data['links']))
+            .catch(err => Swal.fire('Grid Model Error', 'Could not retrieve grid nodes.', 'error'));
+    });
+</script>
+
+<script defer src="{% static 'js/create_asset_topology.js' %}"></script>
+
+
+{% endblock end_body_scripts %}

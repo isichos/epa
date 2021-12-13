@@ -1,0 +1,84 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqlDB
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: "epa-app-db"
+      MYSQL_ROOT_PASSWORD: "4kFDg@G@*G,#)Fa"
+    volumes:
+      - db_data:/var/lib/mysql/
+  app:
+    build: ./app
+    container_name: django-gunicorn
+    restart: always
+    env_file:
+      - app/epa.env
+    environment:
+      - MVS_API_HOST=http://web:5001
+    expose:
+      - 8000  # use expose insted of port to expose ports internal between containers and not to the host maschine
+    volumes:
+      - ./src/cdn_static_root:/src/cdn_static_root
+    command: "gunicorn --workers=2 --bind=0.0.0.0:8000 epa.wsgi:application"
+    depends_on:
+      - db
+      - web
+    links:
+      - db:db
+      - web:web
+  djangoq:
+    build: ./app
+    container_name: django-q-cluster
+    restart: always
+    env_file:
+      - app/epa.env
+    environment:
+      - MVS_API_HOST=http://web:5001
+    command: python manage.py qcluster
+    volumes:
+      - .djangoq/code:/code
+    expose:
+      - 8000
+    depends_on:
+      - db
+      - app
+    links:
+      - db:db
+  nginx:
+    image: nginx:1.17
+    container_name: ngx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./src/cdn_static_root:/static
+    depends_on:
+      - app
+  web:
+    build:
+      args:
+        mvs_version: 0.5.6rc1
+      context: ./mvs_eland_api/fastapi_app
+    restart: unless-stopped
+    expose:
+      - 5001
+    depends_on:
+      - redis
+  worker:
+    build:
+      args:
+        mvs_version: 0.5.6rc1
+      context: ./mvs_eland_api/task_queue
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+  redis:
+    image: redis
+volumes:
+  db_data:

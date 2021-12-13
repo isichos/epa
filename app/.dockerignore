@@ -1,0 +1,31 @@
+.vscode/
+**/__pycache__/
+**/*.py[cod]
+*.sqlite3
+**/migrations/
+!migrations/__init__.py
+*.log
+node_modules/
+static_src/
+Dockerfile
+import.sql
+package.json
+package-lock.json
+Pipfile
+Pipfile.lock
+webpack.config.js
+.babelrc.json
+.dockerignore
+
+# **
+# !cdn_static_root/
+# !dashboard/**
+# !epa/**
+# !fixtures/**
+# !projects/**
+# !static/**
+# !templates/**
+# !users/**
+# !epa.env
+# !manage.py
+# !setup.sh

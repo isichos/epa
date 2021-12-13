@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Energy Planning Application</title>
+    <link rel="shortcut icon" href="{% static 'images/eland.png' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/base-style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha512-0S+nbAYis87iX26mmj/+fWt1MmaKCv80H+Mbo+Ne7ES4I6rxswpfnC6PxmLiw33Ywj2ghbtTw0FkLbMWqh4F7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block head_block %}
+    {% endblock head_block %}
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+    {% block start_body_scripts %}{% endblock %}
+
+    {% include "navbar.html" with user=user %}
+
+    {% block topology %}{% endblock %}
+
+    <div class="container">
+        {% include 'messages.html' %}
+        {% block content %}{% endblock %}
+    </div>
+
+
+    {% block end_body_scripts %}{% endblock %}
+    <br><br>
+
+      <footer>
+        <br>
+        <div class="footer-copyright"><br>
+            <div class="footerr">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+            © 2021 Copyright: Intracom Telecom
+            </div>
+            <div class="col-md-3">
+                <a class="terms" href="{% static 'documents/ToS.pdf' %}" download>Terms and Conditions</a>
+        </div>
+        </div>
+    </div>
+            <br>
+        </div>
+    </footer>
+
+</body>
+
+</html>
