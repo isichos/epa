@@ -7,7 +7,7 @@ The EPA utilizes as its simulation engine the Multi-Vector Simulator ([MVS](http
 
 The solution is licensed under MIT license.
 
-##Features
+## Features
 The main features of the EPA are:
 - Modelling multiple investment projects per user
 - Multiple case studies (scenarios) for each project
@@ -17,7 +17,7 @@ The main features of the EPA are:
 - Share project with another user (read-only)
 - Basic user authentication
 
-##Dependencies
+## Dependencies
 The main technologies based on which EPA is developed are the following:
 - [Django](https://www.djangoproject.com/) as the core web framework;
 - [MySQL](https://www.mysql.com/) v5.7 as Database Management System (DBMS);
@@ -30,7 +30,7 @@ It can be instantiated in different ways:
 - Using MVS's web API [deployed from RLI](https://mvs-eland.rl-institut.de/)
 - Via locally installing the latest stable MVS API project from the relevant [repo](https://github.com/rl-institut/mvs_eland_api.git)
 
-#Getting Started
+# Getting Started
 
 ## Deploy using Docker Compose - use of MVS web API
 The following commands should get everything up and running, utilzing the web based version of the MVS API.
