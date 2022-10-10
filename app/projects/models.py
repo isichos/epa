@@ -155,3 +155,6 @@ class Simulation(models.Model):
     user_rating = models.PositiveSmallIntegerField(null=True, choices=USER_RATING, default=None)
     results = models.TextField(null=True, max_length=30e6)
     errors = models.TextField(null=True)
+
+    def __str__(self) -> str:
+        return f"{self.scenario.name} | {self.status}"
