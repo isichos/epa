@@ -109,6 +109,10 @@ class KPICostsMatrixResults(models.Model):
     cost_values = models.TextField()  # to store the scalars dict
     simulation = models.ForeignKey(Simulation, on_delete=models.CASCADE)
 
+class KPIScalarMatrixResults(models.Model):
+    scalar_matrix = models.TextField()  # to store the scalar_matrix dict
+    simulation = models.ForeignKey(Simulation, on_delete=models.CASCADE)
+
 
 class AssetsResults(models.Model):
     assets_list = models.TextField()  # to store the assets list
