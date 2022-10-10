@@ -3,7 +3,7 @@ import httpx as requests
 import json
 # from requests.exceptions import HTTPError
 from epa.settings import PROXY_CONFIG, MVS_POST_URL, MVS_GET_URL
-from dashboard.models import AssetsResults, KPICostsMatrixResults, KPIScalarResults
+from dashboard.models import AssetsResults, KPICostsMatrixResults, KPIScalarResults, KPIScalarMatrixResults
 from projects.constants import DONE, PENDING, ERROR
 import logging
 
@@ -72,9 +72,10 @@ def parse_mvs_results(simulation, response_results):
 
     # Write Scalar KPIs to db
     KPIScalarResults.objects.create(scalar_values=json.dumps(data['kpi']['scalars']), simulation=simulation)
+    # Write Scalar Matrix KPIs to db
+    KPIScalarMatrixResults.objects.create(scalar_matrix=json.dumps(data['kpi']['scalar_matrix']), simulation=simulation)
     # Write Cost Matrix KPIs to db
     KPICostsMatrixResults.objects.create(cost_values=json.dumps(data['kpi']['cost_matrix']), simulation=simulation)
     # Write Assets to db
     data_subdict={category:v for category,v in data.items() if category in asset_key_list}
     AssetsResults.objects.create(assets_list=json.dumps(data_subdict), simulation=simulation)
-

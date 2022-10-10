@@ -1,7 +1,8 @@
+from lib2to3.pgen2.literals import simple_escapes
 from django.core.exceptions import PermissionDenied
 from django.http.response import Http404, HttpResponse
 from dashboard.helpers import storage_asset_to_list
-from dashboard.models import AssetsResults, KPICostsMatrixResults, KPIScalarResults, KPI_COSTS_TOOLTIPS, KPI_COSTS_UNITS, KPI_SCALAR_TOOLTIPS, KPI_SCALAR_UNITS
+from dashboard.models import KPIScalarMatrixResults, AssetsResults, KPICostsMatrixResults, KPIScalarResults, KPI_COSTS_TOOLTIPS, KPI_COSTS_UNITS, KPI_SCALAR_TOOLTIPS, KPI_SCALAR_UNITS
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
@@ -201,10 +202,10 @@ def scenario_optimized_cap_results(request, scen_id):
         raise PermissionDenied
     
     try:
-        assets_results = AssetsResults.objects.get(simulation=scenario.simulation)
-        assets_results_dict = json.loads(assets_results.assets_list)
-
-        barchart_data = get_optimized_cap_data(assets_results_dict)
+        kpi_scalars_matrix = KPIScalarMatrixResults.objects.get(simulation=scenario.simulation)
+        kpi_scalars_matrix_dict = json.loads(kpi_scalars_matrix.scalar_matrix)
+        
+        barchart_data = get_optimized_cap_data(kpi_scalars_matrix_dict)
         # barchart_data = [
         #     { "label": "asset1", "optimizedAddCap": 20, "unit": "kva" }, 
         #     { "label": "asset2", "optimizedAddCap": 50, "unit": "kwh" }

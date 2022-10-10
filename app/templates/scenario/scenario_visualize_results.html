@@ -271,6 +271,7 @@
             },
             error: function (xhr, errmsg) {
                 console.log("backend_error!")
+                $('#optimizedCapDataDiv').parent().hide();
                 //Show the error message
                 $('#message-div').html("<div class='alert-error'>" +
                     "We have encountered an error: " + errmsg + "</div>");
@@ -313,6 +314,7 @@
             showlegend: false,
             paper_bgcolor: "transparent",
             yaxis: { title: 'Capacities' },
+            // margin: { "b": 100 },
         }
 
         Plotly.newPlot('optimizedCapDataDiv', data, layout);
