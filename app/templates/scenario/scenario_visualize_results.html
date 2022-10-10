@@ -262,9 +262,12 @@
             url: "{% url 'scenario_optimized_cap_results' scenario_id %}",
             type: "GET",
             success: async (data) => {
-                drawBarChart(data);
-                // await data.map(dataObj => drawPieChart(dataObj));
-                // await addPagination();
+                if (data && Array.isArray(data) && data.length > 0)
+                    drawBarChart(data);
+                else {
+                    // if there are no data to show, hide the associative div
+                    $('#optimizedCapDataDiv').parent().hide();
+                }
             },
             error: function (xhr, errmsg) {
                 console.log("backend_error!")
@@ -281,7 +284,6 @@
             try {
                 var normalizedColorVal = (val - min) / (max - min);
                 var colorVal = Math.round(normalizedColorVal * maxRGBVal);
-                console.log(normalizedColorVal, colorVal);
                 return colorVal
             } catch {
                 return 150 // no logic here, just return a value in the range [0,255]
@@ -310,7 +312,7 @@
             height: 350,
             showlegend: false,
             paper_bgcolor: "transparent",
-            yaxis: { title: 'Optimized Capacities' },
+            yaxis: { title: 'Capacities' },
         }
 
         Plotly.newPlot('optimizedCapDataDiv', data, layout);
