@@ -4,17 +4,28 @@
 
 {% block head_block %}
 <link rel="stylesheet" href="{% static 'css/selectize.default.css' %}" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs/1.10.23/dataTables.bootstrap.min.css" integrity="sha512-Z+BWkkwxMpBhQthPeqw2UbG1tamgkRHi1UaYyZ8mTnjt04iXqeVx/Wu4CYzPOn3E+x663DIV+SiAuKDHbTg6FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs/1.10.23/dataTables.bootstrap.min.css"
+    integrity="sha512-Z+BWkkwxMpBhQthPeqw2UbG1tamgkRHi1UaYyZ8mTnjt04iXqeVx/Wu4CYzPOn3E+x663DIV+SiAuKDHbTg6FQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{% static 'css/visresults.css' %}" type="text/css">
 
 {% endblock head_block %}
 
 {% block start_body_scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net/1.10.23/jquery.dataTables.min.js" integrity="sha512-coE8Qg+5Eb8e0xSXkdSJYln78NclTBgX6rducQWvi3NZooVaR1GVcVA5fRPVetzSqh9CEBv7hzwuQsZLLC0e8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs/1.10.23/dataTables.bootstrap.min.js" integrity="sha512-+rDMk0ij80qatwMadCcw2tzSDXb+1Z4YCr4pbVPRQOZTiJg7o8mt3LgE1XU86mIzxW63xfH+0gXEXZ+Adaeq9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.58.5/plotly.min.js" integrity="sha512-7wMLZxKDFvReIWPUzBfcEKsuOriDUEcWkV2bNHV2/tQUmoZj2eLpkQOF7nBbtwVG8WrSl5rTN87cqnS7ZelhzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net/1.10.23/jquery.dataTables.min.js"
+    integrity="sha512-coE8Qg+5Eb8e0xSXkdSJYln78NclTBgX6rducQWvi3NZooVaR1GVcVA5fRPVetzSqh9CEBv7hzwuQsZLLC0e8g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs/1.10.23/dataTables.bootstrap.min.js"
+    integrity="sha512-+rDMk0ij80qatwMadCcw2tzSDXb+1Z4YCr4pbVPRQOZTiJg7o8mt3LgE1XU86mIzxW63xfH+0gXEXZ+Adaeq9g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.58.5/plotly.min.js"
+    integrity="sha512-7wMLZxKDFvReIWPUzBfcEKsuOriDUEcWkV2bNHV2/tQUmoZj2eLpkQOF7nBbtwVG8WrSl5rTN87cqnS7ZelhzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{% static 'js/selectize.min.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.all.min.js" integrity="sha512-9LKXH8DIeFSdiDIWQSOJNZuwLynJNm4x/1eBRpPfRJsEXZWJL+aoH+JNDglF3DcCoQYVBHqXo8sVHOLveoaN0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.all.min.js"
+    integrity="sha512-9LKXH8DIeFSdiDIWQSOJNZuwLynJNm4x/1eBRpPfRJsEXZWJL+aoH+JNDglF3DcCoQYVBHqXo8sVHOLveoaN0A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock start_body_scripts %}
 
 {% block content %}
@@ -31,7 +42,16 @@
         <hr class="mt-2">
         <div class="panel-body t1" id="economicDataDiv"></div>
         <br>
-        <a type="button" class="btn btn-info" href="{% url 'download_cost_results' scenario_id %}">Download Cost Results</a>    
+        <a type="button" class="btn btn-info" href="{% url 'download_cost_results' scenario_id %}">Download Cost
+            Results</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-info">
+        <h2 class="panel-heading" style="text-align: center;">Optimized Cap Data Summary</h2>
+        <hr class="mt-2">
+        <div class="panel-body t1" id="optimizedCapDataDiv"></div>
     </div>
 </div>
 
@@ -62,7 +82,8 @@
         </tbody>
     </table>
     <br>
-    <a type="button" class="btn btn-info" href="{% url 'download_scalar_results' scenario_id %}">Download Scalar Results</a>
+    <a type="button" class="btn btn-info" href="{% url 'download_scalar_results' scenario_id %}">Download Scalar
+        Results</a>
 </div>
 
 
@@ -105,7 +126,8 @@
     </div>
 
     <br>
-    <a type="button" class="btn btn-info" href="{% url 'download_timeseries_results' scenario_id %}">Download Timeseries</a>
+    <a type="button" class="btn btn-info" href="{% url 'download_timeseries_results' scenario_id %}">Download
+        Timeseries</a>
 
 </div>
 
@@ -122,7 +144,7 @@
         $.ajax({
             url: "{% url 'scenario_economic_results' scenario_id %}",
             type: "GET",
-            success: async (data) => { 
+            success: async (data) => {
                 await data.map(dataObj => drawPieChart(dataObj));
                 await addPagination();
             },
@@ -139,33 +161,33 @@
         const data = [{
             values: dataList.values,
             labels: dataList.labels,
-            
+
             marker: {
                 colors: [('0.444444444444', '#ffeab0'),
-                        ('0.555555555556', 'rgb(224,243,248)'),
-                        ('0.777777777778', 'rgb(116,173,209)'),
-                        ('0.666666666667', 'rgb(171,217,233)'),
+                ('0.555555555556', 'rgb(224,243,248)'),
+                ('0.777777777778', 'rgb(116,173,209)'),
+                ('0.666666666667', 'rgb(171,217,233)'),
 
-                        ('0.0', '#ba1239'),
-                        ('0.111111111111', '#e26d5c'),
-                        ('0.222222222222', '#f28f3b'),
-                        ('0.333333333333', 'rgb(253,174,97)'),
-                        ('0.888888888889', 'rgb(69,117,180)'),
-                        ('1.0', 'rgb(49,54,149)')
-                        ]
-             },
+                ('0.0', '#ba1239'),
+                ('0.111111111111', '#e26d5c'),
+                ('0.222222222222', '#f28f3b'),
+                ('0.333333333333', 'rgb(253,174,97)'),
+                ('0.888888888889', 'rgb(69,117,180)'),
+                ('1.0', 'rgb(49,54,149)')
+                ]
+            },
             type: 'pie',
             text: dataList.units,
             name: '',
             hovertemplate: 'Asset: %{label}' +
-                        '<br>Share: %{percent}' +
-                        '<br>Value: %{value} %{text}',
+                '<br>Share: %{percent}' +
+                '<br>Value: %{value} %{text}',
             // hoverinfo: 'label+percent+unit',
             textinfo: "label+percent",
             textposition: "inside",
             automargin: true,
         }];
-        
+
         //data.map(dat => console.log(`${dataList.title} \n ${dat.values} \n ${dat.labels}`));
 
         const layout = {
@@ -234,6 +256,69 @@
 
 </script> <!-- Economic Data -->
 
+<script>
+    $('#optimizedCapDataDiv').ready(function () {
+        $.ajax({
+            url: "{% url 'scenario_optimized_cap_results' scenario_id %}",
+            type: "GET",
+            success: async (data) => {
+                if (data && Array.isArray(data) && data.length > 0)
+                    drawBarChart(data);
+                else {
+                    // if there are no data to show, hide the associative div
+                    $('#optimizedCapDataDiv').parent().hide();
+                }
+            },
+            error: function (xhr, errmsg) {
+                console.log("backend_error!")
+                //Show the error message
+                $('#message-div').html("<div class='alert-error'>" +
+                    "We have encountered an error: " + errmsg + "</div>");
+            }
+        });
+    });
+
+    function drawBarChart(inputData) {
+        function normalizeValue(val, max = 255, min = 0) {
+            var maxRGBVal = 255;
+            try {
+                var normalizedColorVal = (val - min) / (max - min);
+                var colorVal = Math.round(normalizedColorVal * maxRGBVal);
+                return colorVal
+            } catch {
+                return 150 // no logic here, just return a value in the range [0,255]
+            }
+        }
+
+        var maxValue = Math.max(...inputData.map(function (item) { return item.optimizedAddCap }));
+
+        var data = [
+            {
+                x: inputData.reduce(function (acc, item) { acc.push(item.label); return acc; }, []),
+                y: inputData.reduce(function (acc, item) { acc.push(item.optimizedAddCap); return acc; }, []),
+                type: 'bar',
+                marker: {
+                    color: inputData.reduce(function (acc, item) { var val = normalizeValue(item.optimizedAddCap, maxValue); acc.push(`rgba(${val},200,100,1)`); return acc; }, [])
+                },
+                text: inputData.reduce(function (acc, item) { acc.push(item.optimizedAddCap + ' ' + item.unit); return acc; }, []),
+                name: '', // no series name
+                hovertemplate: 'Asset: %{label}' + '<br>Value: %{text}',
+                textposition: "inside",
+                automargin: true,
+            }
+        ];
+
+        const layout = {
+            height: 350,
+            showlegend: false,
+            paper_bgcolor: "transparent",
+            yaxis: { title: 'Capacities' },
+        }
+
+        Plotly.newPlot('optimizedCapDataDiv', data, layout);
+
+    }
+</script> <!-- Optimized Cap Data -->
 
 <script>
     // Ajax request to retrieve all available graphs for visualization
@@ -273,7 +358,7 @@
             optgroupField: 'assetCategory', // refers to the group field in "options"
             optgroupLabelField: 'assetCategory', // refers to the label field in "optgroups"
             optgroupValueField: 'assetCategory' // refers to the value field in "optgroups"
-         
+
 
         });
     }
@@ -306,7 +391,7 @@
                 x: data.xAxis.values.map(timestamp => new Date(timestamp * 1000)),
                 y: data.yAxis.values,
                 type: 'scatter',
-                
+
             };
             traceList.push(trace)
         });
@@ -324,8 +409,8 @@
                 showline: true
             },
             font: {
-                    family: 'Century Gothic',
-                    size: 12
+                family: 'Century Gothic',
+                size: 12
             },
             autosize: true,
         };
