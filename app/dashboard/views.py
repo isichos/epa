@@ -8,7 +8,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_http_methods
 from jsonview.decorators import json_view
 from projects.models import Scenario
-from dashboard.helpers import kpi_scalars_list
+from dashboard.helpers import kpi_scalars_list, get_optimized_cap_data
 from io import BytesIO
 import xlsxwriter
 import json
@@ -185,6 +185,32 @@ def scenario_economic_results(request, scen_id):
             # there are more than one assets with value > 0
         ]
         return JsonResponse(results_json, status=200, content_type='application/json', safe=False)
+    except Exception as e:
+        logger.error(f"Dashboard ERROR: MVS Req Id: {scenario.simulation.mvs_token}. Thrown Exception: {e}")
+        return JsonResponse({"error":f"Could not retrieve kpi cost data."}, status=404, content_type='application/json', safe=False)
+
+
+@login_required
+@json_view
+@require_http_methods(["GET"])
+def scenario_optimized_cap_results(request, scen_id):
+    """Gather any optimized cap results and present in the ui."""
+    scenario: Scenario = get_object_or_404(Scenario, pk=scen_id)
+
+    if (scenario.project.user != request.user) and (request.user not in scenario.project.viewers.all()):
+        raise PermissionDenied
+    
+    try:
+        assets_results = AssetsResults.objects.get(simulation=scenario.simulation)
+        assets_results_dict = json.loads(assets_results.assets_list)
+
+        barchart_data = get_optimized_cap_data(assets_results_dict)
+        # barchart_data = [
+        #     { "label": "asset1", "optimizedAddCap": 20, "unit": "kva" }, 
+        #     { "label": "asset2", "optimizedAddCap": 50, "unit": "kwh" }
+        # ]
+        
+        return JsonResponse(barchart_data, status=200, content_type='application/json', safe=False)
     except Exception as e:
         logger.error(f"Dashboard ERROR: MVS Req Id: {scenario.simulation.mvs_token}. Thrown Exception: {e}")
         return JsonResponse({"error":f"Could not retrieve kpi cost data."}, status=404, content_type='application/json', safe=False)
